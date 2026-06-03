@@ -1,0 +1,11 @@
+<h2>Receitas</h2>
+
+<a href="/receitas/nova">Nova Receita</a>
+
+<ul>
+    <li th:each="r : ${receitas}">
+        <span th:text="${r.nome}"></span> -
+        <span th:text="${r.categoria.nome}"></span> -
+        <span th:text="${r.tempoPreparo.toMinutes()} + ' min'"></span>
+    </li>
+</ul>
