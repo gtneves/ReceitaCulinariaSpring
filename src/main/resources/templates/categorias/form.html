@@ -1,7 +1,28 @@
-<h2>Nova Categoria</h2>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Nova Categoria</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>Cadastro de Categoria</h1>
+</header>
 
-<form action="/categorias" method="post">
-    Nome: <input type="text" name="nome"/><br>
-    Descrição: <input type="text" name="descricao"/><br>
-    <button type="submit">Salvar</button>
-</form>
+<main class="container">
+    <a th:href="@{/}">Inicio</a>
+    <a th:href="@{/categorias}">Listar Categorias</a>
+
+    <form th:action="@{/categorias}" th:object="${categoria}" method="post">
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" th:field="*{nome}" required>
+
+        <label for="descricao">Descricao</label>
+        <input id="descricao" type="text" th:field="*{descricao}" required>
+
+        <button type="submit">Salvar</button>
+    </form>
+</main>
+</body>
+</html>

@@ -1,11 +1,47 @@
-<h2>Receitas</h2>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Receitas</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>Receitas</h1>
+</header>
 
-<a href="/receitas/nova">Nova Receita</a>
+<main class="container">
+    <a th:href="@{/}">Inicio</a>
+    <a th:href="@{/receitas/nova}">Nova Receita</a>
 
-<ul>
-    <li th:each="r : ${receitas}">
-        <span th:text="${r.nome}"></span> -
-        <span th:text="${r.categoria.nome}"></span> -
-        <span th:text="${r.tempoPreparo.toMinutes()} + ' min'"></span>
-    </li>
-</ul>
+    <table>
+        <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descricao</th>
+            <th>Tempo</th>
+            <th>Dificuldade</th>
+            <th>Categoria</th>
+            <th>Acoes</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="receita : ${receitas}">
+            <td th:text="${receita.nome}"></td>
+            <td th:text="${receita.descricao}"></td>
+            <td th:text="${receita.tempoPreparo.toMinutes()} + ' min'"></td>
+            <td th:text="${receita.dificuldade}"></td>
+            <td th:text="${receita.categoria.nome}"></td>
+            <td>
+                <form class="action-form"
+                      th:action="@{/receitas/{id}/excluir(id=${receita.id})}"
+                      method="post">
+                    <button class="danger" type="submit">Excluir</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

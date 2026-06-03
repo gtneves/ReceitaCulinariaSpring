@@ -1,0 +1,108 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< io.github:receita >--------------------------
+[INFO] Building  0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.0.6:run (default-cli) > test-compile @ receita >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ receita ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 6 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ receita ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ receita ---
+[INFO] skip non existing resourceDirectory C:\Users\prtmo\Documents\Codex\2026-06-03\problema-a-aplica-o-n-o\work\receita\receita\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ receita ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:4.0.6:run (default-cli) < test-compile @ receita <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.0.6:run (default-cli) @ receita ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.6)
+
+2026-06-03T12:06:06.681-03:00  INFO 2988 --- [receita] [           main] io.github.receita.ReceitaApplication     : Starting ReceitaApplication using Java 17.0.12 with PID 2988 (C:\Users\prtmo\Documents\Codex\2026-06-03\problema-a-aplica-o-n-o\work\receita\receita\target\classes started by prtmo in C:\Users\prtmo\Documents\Codex\2026-06-03\problema-a-aplica-o-n-o\work\receita\receita)
+2026-06-03T12:06:06.690-03:00  INFO 2988 --- [receita] [           main] io.github.receita.ReceitaApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-06-03T12:06:08.416-03:00  INFO 2988 --- [receita] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-03T12:06:08.575-03:00  INFO 2988 --- [receita] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 134 ms. Found 2 JPA repository interfaces.
+2026-06-03T12:06:10.186-03:00  INFO 2988 --- [receita] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-06-03T12:06:10.238-03:00  INFO 2988 --- [receita] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-03T12:06:10.239-03:00  INFO 2988 --- [receita] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-06-03T12:06:10.429-03:00  INFO 2988 --- [receita] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 3586 ms
+2026-06-03T12:06:10.947-03:00  INFO 2988 --- [receita] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-03T12:06:11.144-03:00  INFO 2988 --- [receita] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-06-03T12:06:12.575-03:00  INFO 2988 --- [receita] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-03T12:06:12.660-03:00  INFO 2988 --- [receita] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-03T12:06:13.096-03:00  INFO 2988 --- [receita] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:receitadb user=SA
+2026-06-03T12:06:13.102-03:00  INFO 2988 --- [receita] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-03T12:06:13.287-03:00  INFO 2988 --- [receita] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:receitadb]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: RECEITADB/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-03T12:06:15.061-03:00  INFO 2988 --- [receita] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table categoria (id uuid not null, descricao varchar(100) not null, nome varchar(100) not null, primary key (id))
+Hibernate: create table receita (id uuid not null, descricao varchar(500) not null, dificuldade varchar(50) not null, nome varchar(100) not null, tempo_preparo bigint not null, categoria_id uuid, primary key (id))
+Hibernate: alter table if exists receita add constraint FKigwe5nkerq6x8yvgirah6yxv8 foreign key (categoria_id) references categoria
+2026-06-03T12:06:15.196-03:00  INFO 2988 --- [receita] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-03T12:06:15.324-03:00  INFO 2988 --- [receita] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-03T12:06:15.575-03:00  WARN 2988 --- [receita] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-03T12:06:15.618-03:00  INFO 2988 --- [receita] [           main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page template: index
+2026-06-03T12:06:16.345-03:00  INFO 2988 --- [receita] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-06-03T12:06:16.355-03:00  INFO 2988 --- [receita] [           main] io.github.receita.ReceitaApplication     : Started ReceitaApplication in 11.451 seconds (process running for 13.591)
+2026-06-03T12:06:29.170-03:00  INFO 2988 --- [receita] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-03T12:06:29.171-03:00  INFO 2988 --- [receita] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-03T12:06:29.174-03:00  INFO 2988 --- [receita] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+Hibernate: select c1_0.id,c1_0.descricao,c1_0.nome from categoria c1_0
+Hibernate: insert into categoria (descricao,nome,id) values (?,?,?)
+Hibernate: select c1_0.id,c1_0.descricao,c1_0.nome from categoria c1_0
+Hibernate: select c1_0.id,c1_0.descricao,c1_0.nome from categoria c1_0
+Hibernate: select c1_0.id,c1_0.descricao,c1_0.nome from categoria c1_0 where c1_0.id=?
+Hibernate: insert into receita (categoria_id,descricao,dificuldade,nome,tempo_preparo,id) values (?,?,?,?,?,?)
+Hibernate: select r1_0.id,r1_0.categoria_id,r1_0.descricao,r1_0.dificuldade,r1_0.nome,r1_0.tempo_preparo from receita r1_0
+Hibernate: select c1_0.id,c1_0.descricao,c1_0.nome from categoria c1_0 where c1_0.id=?
+Hibernate: select c1_0.id,c1_0.descricao,c1_0.nome from categoria c1_0
+Hibernate: select c1_0.id,c1_0.descricao,c1_0.nome from categoria c1_0 where c1_0.id=?
+Hibernate: select r1_0.categoria_id,r1_0.id,r1_0.descricao,r1_0.dificuldade,r1_0.nome,r1_0.tempo_preparo from receita r1_0 where r1_0.categoria_id=?
+Hibernate: delete from receita where id=?
+Hibernate: delete from categoria where id=?
+Hibernate: select c1_0.id,c1_0.descricao,c1_0.nome from categoria c1_0
+Hibernate: select r1_0.id,r1_0.categoria_id,r1_0.descricao,r1_0.dificuldade,r1_0.nome,r1_0.tempo_preparo from receita r1_0
+Hibernate: select c1_0.id,c1_0.descricao,c1_0.nome from categoria c1_0
+Hibernate: select c1_0.id,c1_0.descricao,c1_0.nome from categoria c1_0
+Hibernate: insert into categoria (descricao,nome,id) values (?,?,?)
+Hibernate: select c1_0.id,c1_0.descricao,c1_0.nome from categoria c1_0
+Hibernate: select c1_0.id,c1_0.descricao,c1_0.nome from categoria c1_0
+Hibernate: select c1_0.id,c1_0.descricao,c1_0.nome from categoria c1_0 where c1_0.id=?
+Hibernate: insert into receita (categoria_id,descricao,dificuldade,nome,tempo_preparo,id) values (?,?,?,?,?,?)
+Hibernate: select r1_0.id,r1_0.categoria_id,r1_0.descricao,r1_0.dificuldade,r1_0.nome,r1_0.tempo_preparo from receita r1_0
+Hibernate: select c1_0.id,c1_0.descricao,c1_0.nome from categoria c1_0 where c1_0.id=?
+Hibernate: select r1_0.id,c1_0.id,c1_0.descricao,c1_0.nome,r1_0.descricao,r1_0.dificuldade,r1_0.nome,r1_0.tempo_preparo from receita r1_0 left join categoria c1_0 on c1_0.id=r1_0.categoria_id where r1_0.id=?
+Hibernate: delete from receita where id=?
+Hibernate: select r1_0.id,r1_0.categoria_id,r1_0.descricao,r1_0.dificuldade,r1_0.nome,r1_0.tempo_preparo from receita r1_0
+Hibernate: select c1_0.id,c1_0.descricao,c1_0.nome from categoria c1_0
+Hibernate: select c1_0.id,c1_0.descricao,c1_0.nome from categoria c1_0 where c1_0.id=?
+Hibernate: select r1_0.categoria_id,r1_0.id,r1_0.descricao,r1_0.dificuldade,r1_0.nome,r1_0.tempo_preparo from receita r1_0 where r1_0.categoria_id=?
+Hibernate: delete from categoria where id=?
+Hibernate: select c1_0.id,c1_0.descricao,c1_0.nome from categoria c1_0

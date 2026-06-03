@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Duration;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/receitas")
@@ -41,7 +42,7 @@ public class ReceitaController {
             @RequestParam String descricao,
             @RequestParam Long tempoPreparo,
             @RequestParam String dificuldade,
-            @RequestParam("categoria.id") String categoriaId
+            @RequestParam UUID categoriaId
     ) {
 
         Receita receita = new Receita();
@@ -51,11 +52,17 @@ public class ReceitaController {
         receita.setTempoPreparo(Duration.ofMinutes(tempoPreparo));
         receita.setDificuldade(dificuldade);
 
-        categoriaRepository.findById(java.util.UUID.fromString(categoriaId))
+        categoriaRepository.findById(categoriaId)
                 .ifPresent(receita::setCategoria);
 
         receitaRepository.save(receita);
 
+        return "redirect:/receitas";
+    }
+
+    @PostMapping("/{id}/excluir")
+    public String excluir(@PathVariable UUID id) {
+        receitaRepository.deleteById(id);
         return "redirect:/receitas";
     }
 }

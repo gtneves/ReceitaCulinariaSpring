@@ -19,11 +19,11 @@ public class Categoria {
     private UUID id;
 
     @Column(name = "nome", length = 100, nullable = false)
-    String nome;
+    private String nome;
 
     @Column(name = "descricao", length = 100, nullable = false)
-    String descricao;
+    private String descricao;
 
-    @OneToMany(mappedBy = "categoria")
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Receita> receitas;
 }

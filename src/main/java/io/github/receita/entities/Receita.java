@@ -18,16 +18,16 @@ public class Receita {
     private UUID id;
 
     @Column(name = "nome", length = 100, nullable = false)
-    String nome;
+    private String nome;
 
-    @Column(name = "descricao", length = 100, nullable = false)
-    String descricao;
+    @Column(name = "descricao", length = 500, nullable = false)
+    private String descricao;
 
-    @Column(name = "tempoPreparo", nullable = false)
-    Duration tempoPreparo;
+    @Column(name = "tempo_preparo", nullable = false)
+    private Duration tempoPreparo;
 
     @Column(name = "dificuldade", length = 50,nullable = false)
-    String dificuldade;
+    private String dificuldade;
 
     @ManyToOne
     @JoinColumn(name = "categoria_id")

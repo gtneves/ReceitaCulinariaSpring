@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Nova Receita</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>Cadastro de Receita</h1>
+</header>
+
+<main class="container">
+    <a th:href="@{/}">Inicio</a>
+    <a th:href="@{/receitas}">Listar Receitas</a>
+
+    <form th:action="@{/receitas}" method="post">
+        <label for="nome">Nome</label>
+        <input id="nome" type="text" name="nome" required>
+
+        <label for="descricao">Descricao</label>
+        <textarea id="descricao" name="descricao" rows="4" required></textarea>
+
+        <label for="tempoPreparo">Tempo de preparo (minutos)</label>
+        <input id="tempoPreparo" type="number" name="tempoPreparo" min="1" required>
+
+        <label for="dificuldade">Dificuldade</label>
+        <select id="dificuldade" name="dificuldade" required>
+            <option value="">Selecione</option>
+            <option value="Facil">Facil</option>
+            <option value="Media">Media</option>
+            <option value="Dificil">Dificil</option>
+        </select>
+
+        <label for="categoriaId">Categoria</label>
+        <select id="categoriaId" name="categoriaId" required>
+            <option value="">Selecione</option>
+            <option th:each="categoria : ${categorias}"
+                    th:value="${categoria.id}"
+                    th:text="${categoria.nome}">
+            </option>
+        </select>
+
+        <button type="submit">Salvar</button>
+    </form>
+</main>
+</body>
+</html>

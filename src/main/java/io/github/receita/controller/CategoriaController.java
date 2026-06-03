@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @Controller
 @RequestMapping("/categorias")
 public class CategoriaController {
@@ -31,6 +33,12 @@ public class CategoriaController {
     @PostMapping
     public String salvar(@ModelAttribute Categoria categoria) {
         repository.save(categoria);
+        return "redirect:/categorias";
+    }
+
+    @PostMapping("/{id}/excluir")
+    public String excluir(@PathVariable UUID id) {
+        repository.deleteById(id);
         return "redirect:/categorias";
     }
 }
